@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Monitor,
-  BarChart3,
   Cloud,
   Shield,
   Palette,
@@ -14,22 +13,18 @@ import {
 import AnimatedSection from "@/components/AnimatedSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import CostEstimator from "@/components/CostEstimator";
+import StatsSection from "@/components/StatsSection";
 
 const services = [
   {
     icon: Monitor,
     title: "UI/UX & Web Design",
-    desc: "Interfaces designed around how your users actually behave.",
-  },
-  {
-    icon: BarChart3,
-    title: "Data Analytics & BI",
-    desc: "Turn scattered spreadsheets into dashboards you can actually use.",
+    desc: "Websites that convert visitors into customers — custom, responsive, and built for results.",
   },
   {
     icon: Palette,
-    title: "Printing & Branding",
-    desc: "Physical materials that match your website and social presence.",
+    title: "Graphic Design",
+    desc: "Logos, social media, packaging, and print materials that look unmistakably yours.",
   },
   {
     icon: Code2,
@@ -46,13 +41,6 @@ const services = [
     title: "Cybersecurity",
     desc: "Security reviews that keep your systems and client data safe.",
   },
-];
-
-const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "24/7", label: "Support Available" },
-  { value: "5+", label: "Years Experience" },
 ];
 
 export default function HomePage() {
@@ -157,26 +145,12 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative py-20 bg-canvas-light border-y border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
-              <AnimatedSection key={stat.label} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-slate-500">{stat.label}</div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* Approach Section with image */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative section-padding bg-white">
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-canvas" />
+        <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image */}
             <AnimatedSection direction="left">
@@ -216,7 +190,8 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="section-padding bg-canvas">
+      <section className="relative section-padding bg-canvas">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <span className="label-text">What We Do</span>
@@ -263,7 +238,8 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-canvas">
+      <section className="relative section-padding bg-canvas">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-canvas to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -278,10 +254,12 @@ export default function HomePage() {
             <FAQAccordion />
           </AnimatedSection>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* Cost Estimator Section */}
-      <section className="section-padding bg-white">
+      <section className="relative section-padding bg-white">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-canvas to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -303,6 +281,7 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="section-padding bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
         <div className="relative max-w-4xl mx-auto text-center">
           <AnimatedSection>
