@@ -83,7 +83,7 @@ export default function ProcessPage() {
             <span className="label-text">Process</span>
             <h1 className="heading-xl mt-4 mb-6">
               How a project runs,{" "}
-              <span className="text-gradient-amber">start to finish.</span>
+              <span className="text-gradient">start to finish.</span>
             </h1>
             <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
               The same five stages whether we&apos;re shipping a dashboard, a

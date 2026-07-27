@@ -9,6 +9,11 @@ import {
   Shield,
   Palette,
   Code2,
+  Megaphone,
+  Headphones,
+  Star,
+  Quote,
+  Clock,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -19,36 +24,164 @@ const services = [
   {
     icon: Monitor,
     title: "UI/UX & Web Design",
-    desc: "Websites that convert visitors into customers — custom, responsive, and built for results.",
-  },
-  {
-    icon: Palette,
-    title: "Graphic Design",
-    desc: "Logos, social media, packaging, and print materials that look unmistakably yours.",
+    desc: "Seamless, human-centered designs that improve engagement, conversion, and user satisfaction — turning visitors into loyal customers.",
+    href: "/services",
   },
   {
     icon: Code2,
     title: "Software Development",
-    desc: "Custom web and mobile applications, scoped clearly and handed over with documentation.",
+    desc: "From concept to launch, we build custom applications that work flawlessly across all devices and scale with your business.",
+    href: "/services",
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design",
+    desc: "A powerful, consistent visual identity that connects emotionally with your audience and leaves a lasting impression across every touchpoint.",
+    href: "/services",
+  },
+  {
+    icon: Megaphone,
+    title: "Digital Marketing & SEO",
+    desc: "Boost your reach, generate quality leads, and increase ROI through strategic digital marketing that blends creativity with measurable results.",
+    href: "/services",
   },
   {
     icon: Cloud,
     title: "Cloud & Networking",
-    desc: "Cloud migration so your team can work reliably, wherever they are.",
+    desc: "Infrastructure that just works — cloud migration, office networking, and reliable connectivity for your team, wherever they are.",
+    href: "/services",
   },
   {
     icon: Shield,
     title: "Cybersecurity",
-    desc: "Security reviews that keep your systems and client data safe.",
+    desc: "Protection before you need it. Security audits, staff training, and layered protection that keeps your data safe.",
+    href: "/services",
+  },
+  {
+    icon: Headphones,
+    title: "Managed IT Support",
+    desc: "Your tech team without the full-time cost. Help desk, hardware, software, and maintenance — so small problems stay small.",
+    href: "/services",
+  },
+];
+
+const portfolio = [
+  {
+    title: "Retail Inventory Dashboard",
+    category: "Software",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+  },
+  {
+    title: "E-commerce Redesign",
+    category: "Web Design",
+    image: "https://images.unsplash.com/photo-1557821556-044d29930bd9?w=600&q=80",
+  },
+  {
+    title: "PayFlow Brand Identity",
+    category: "Graphic Design",
+    image: "https://images.unsplash.com/photo-1626785774573-4b7787643978?w=600&q=80",
+  },
+];
+
+const tools = [
+  { name: "Figma", type: "Design Tool" },
+  { name: "Next.js", type: "Web Framework" },
+  { name: "React", type: "UI Library" },
+  { name: "TypeScript", type: "Language" },
+  { name: "Tailwind", type: "CSS Framework" },
+  { name: "Node.js", type: "Backend" },
+  { name: "PostgreSQL", type: "Database" },
+  { name: "AWS", type: "Cloud Platform" },
+];
+
+const methodology = [
+  {
+    step: "01",
+    title: "Discovery & Strategy",
+    description:
+      "We start by learning everything about your brand, goals, audience, and challenges. Through deep discovery sessions and research, we uncover insights that define your direction.",
+    value: "Every creative decision is grounded in purpose — so your brand doesn't just look good, it works smart.",
+    deliverables: "Brand audit, mood boards, strategy outline, creative direction.",
+  },
+  {
+    step: "02",
+    title: "Concept Development",
+    description:
+      "Once we have the strategy, we translate insights into clear, impactful ideas. Our team brainstorms, sketches, and explores multiple directions to find the concept that best expresses your story.",
+    value: "Every concept is designed to connect emotionally, communicate clearly, and set your brand apart.",
+    deliverables: "Visual concepts, design mockups, key message framework.",
+  },
+  {
+    step: "03",
+    title: "Design & Iteration",
+    description:
+      "Vision turns into experience. We create user-centered designs that are visually compelling, functional, and intuitive. Every element is crafted to build trust and engagement.",
+    value: "Precision meets creativity — every design decision is intentional, measurable, and impactful.",
+    deliverables: "High-fidelity UI/UX designs, responsive layouts, prototypes.",
+  },
+  {
+    step: "04",
+    title: "Development & Launch",
+    description:
+      "Our developers bring the design to life with clean, optimized code and reliable performance. We prioritize speed, security, and scalability across all devices.",
+    value: "Your digital presence, built to perform — functional, fast, and future-ready.",
+    deliverables: "Live website/app, technical documentation, launch support.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "James Mwangi",
+    role: "Operations Director",
+    company: "Nairobi Fashion House",
+    quote:
+      "Touchbright built our inventory dashboard from scratch. We went from guessing stock levels to seeing everything in real-time. Since the redesign, our efficiency has increased by 40%. Their work is consistently fresh and on-brand.",
+  },
+  {
+    name: "Sarah Nakanwagi",
+    role: "Founder",
+    company: "Kampala Eats",
+    quote:
+      "They didn't just build a website — they understood our business. They took the time to understand our complex product and built a platform that explains it simply and beautifully. Our online orders went from zero to over a thousand per month.",
+  },
+  {
+    name: "David Okello",
+    role: "Principal",
+    company: "Bright Future Academy",
+    quote:
+      "Our digital presence was nonexistent before Touchbright. They handle everything — from creating gorgeous designs to building functional systems. The school management system saves us 15 hours every week. It's been a game-changer.",
+  },
+];
+
+const blogPosts = [
+  {
+    title: "Why Your Business Needs a Dashboard (Not More Spreadsheets)",
+    slug: "why-your-business-needs-a-dashboard",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    date: "Jun 15, 2025",
+    readTime: "5 min",
+  },
+  {
+    title: "Choosing the Right Tech Stack: A Guide for Non-Technical Founders",
+    slug: "choosing-the-right-tech-stack",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+    date: "Jun 8, 2025",
+    readTime: "7 min",
+  },
+  {
+    title: "5 Common Website Mistakes Killing Your Conversions",
+    slug: "common-website-mistakes-killing-conversions",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    date: "May 1, 2025",
+    readTime: "5 min",
   },
 ];
 
 export default function HomePage() {
   return (
     <div className="page-transition">
-      {/* Hero Section - Digisrupt Style: full bg image + overlay */}
+      {/* ==================== HERO ==================== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Full background image */}
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80"
@@ -56,12 +189,10 @@ export default function HomePage() {
             className="w-full h-full object-cover"
           />
         </div>
-        {/* Dark overlay - stronger on the left for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/75 to-primary-dark/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/75 to-primary-dark/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-20 w-full">
-          <div className="max-w-2xl">
-            {/* Tag pills */}
+          <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,31 +207,25 @@ export default function HomePage() {
               </span>
             </motion.div>
 
-            {/* Main heading - white text on dark overlay */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-tight text-white mb-6"
             >
-              Built to make technology feel{" "}
-              <span className="text-accent-light">simple.</span>
+              We Build Systems &amp; Brands That{" "}
+              <span className="text-accent-light">Drive Growth</span>
             </motion.h1>
 
-            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl"
+              className="text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-2xl"
             >
-              Too many businesses are being sold pieces — a website here, a
-              report there — with no one accountable for how they{" "}
-              <span className="text-white font-medium">fit together</span>.
-              We change that.
+              Touchbright Consults is a creative technology agency specializing in software, design, and IT infrastructure. Helping businesses stand out, connect with their audience, and grow with confidence.
             </motion.p>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,26 +233,25 @@ export default function HomePage() {
               className="flex flex-wrap gap-4"
             >
               <Link
-                href="/contact"
+                href="/portfolio"
                 className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-accent/25"
               >
-                Book a Consultation
+                View Our Work
                 <ArrowRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
                 />
               </Link>
               <Link
-                href="/services"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 hover:border-accent/50 text-white font-medium rounded-full transition-all duration-300 hover:bg-white/10"
               >
-                View Services
+                Book Consultation
               </Link>
             </motion.div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -144,102 +268,318 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <StatsSection />
-
-      {/* Approach Section with image */}
+      {/* ==================== SERVICES ==================== */}
       <section className="relative section-padding bg-white">
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-canvas" />
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Image */}
-            <AnimatedSection direction="left">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
-                  alt="Team working together on a project"
-                  className="w-full h-[400px] object-cover"
-                />
-              </div>
-            </AnimatedSection>
-
-            {/* Right - Text */}
-            <AnimatedSection direction="right" delay={0.2}>
-              <span className="label-text">Our Approach</span>
-              <h2 className="heading-lg mt-4 mb-6">
-                One team, working across every{" "}
-                <span className="text-gradient">touchpoint.</span>
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <span className="label-text">Our Innovative Services</span>
+              <h2 className="heading-lg mt-4">
+                Everything your business needs,{" "}
+                <span className="text-gradient">under one roof.</span>
               </h2>
-              <div className="space-y-6 text-slate-600 leading-relaxed">
-                <p>
-                  Touchbright Consults works across design, data, software and
-                  print, so a single team stays accountable for how your
-                  website, your dashboards, your marketing and your printed
-                  materials actually look and feel together.
-                </p>
-                <p>
-                  We keep scopes specific, timelines honest, and communication
-                  direct — no ticket queues, no disappearing after launch. If
-                  something breaks or needs adjusting, you talk to the people
-                  who built it.
-                </p>
-              </div>
-            </AnimatedSection>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {services.map((service, i) => (
+              <AnimatedSection key={service.title} delay={i * 0.08}>
+                <Link href={service.href}>
+                  <div className="group glass-card-hover p-7 h-full cursor-pointer relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent-light scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <service.icon
+                      size={36}
+                      className="text-accent mb-5 group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <h3 className="text-lg font-heading font-bold text-slate-900 mb-3 group-hover:text-accent transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                      {service.desc}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-accent text-sm font-medium group-hover:gap-2 transition-all">
+                      Read More <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="relative section-padding bg-canvas">
+      {/* ==================== PORTFOLIO PREVIEW ==================== */}
+      <section className="relative section-padding bg-canvas overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <span className="label-text">What We Do</span>
-            <h2 className="heading-lg mt-4 mb-4">
-              Services that cover the full picture.
-            </h2>
-            <p className="text-slate-500 max-w-2xl mb-12">
-              From first sketch to production-ready front-end, from scattered
-              data to clear dashboards — we handle it end to end.
-            </p>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+              <div>
+                <span className="label-text">Our Design Masterpieces</span>
+                <h2 className="heading-lg mt-4">
+                  Work we&apos;re{" "}
+                  <span className="text-gradient">proud of.</span>
+                </h2>
+              </div>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all text-sm"
+              >
+                View All Portfolio
+                <ArrowRight size={14} />
+              </Link>
+            </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.title} delay={i * 0.1}>
-                <div className="glass-card-hover p-8 h-full group cursor-pointer">
-                  <service.icon
-                    size={32}
-                    className="text-accent mb-5 group-hover:scale-110 transition-transform"
-                  />
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {service.desc}
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {portfolio.map((item, i) => (
+              <AnimatedSection key={item.title} delay={i * 0.1}>
+                <Link href="/portfolio" className="group block">
+                  <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <span className="text-accent-light text-xs font-medium uppercase tracking-wider">
+                        {item.category}
+                      </span>
+                      <h3 className="text-white font-heading font-bold text-xl mt-2 group-hover:text-accent-light transition-colors">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
+      </section>
 
-          <AnimatedSection delay={0.4}>
-            <div className="mt-12 text-center">
+      {/* ==================== TOOLBOX ==================== */}
+      <section className="relative section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <span className="label-text">Our Toolbox For Innovation</span>
+              <h2 className="heading-lg mt-4">
+                Technologies we{" "}
+                <span className="text-gradient">work with.</span>
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+              {tools.map((tool, i) => (
+                <motion.div
+                  key={tool.name}
+                  whileHover={{ y: -4, scale: 1.05 }}
+                  className="flex flex-col items-center gap-2 p-5 rounded-2xl border border-slate-100 bg-white hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all cursor-default"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <span className="text-accent font-heading font-bold text-sm">
+                      {tool.name.slice(0, 2).toUpperCase()}
+                    </span>
+                  </div>
+                  <span className="text-sm font-semibold text-slate-900 text-center">
+                    {tool.name}
+                  </span>
+                  <span className="text-[10px] text-slate-400 text-center">
+                    {tool.type}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <div className="mt-10 text-center">
               <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-colors"
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all text-sm"
               >
-                View all services
-                <ArrowRight size={16} />
+                Let&apos;s Get Started!
+                <ArrowRight size={14} />
               </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative section-padding bg-canvas">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-canvas to-transparent" />
+      {/* ==================== METHODOLOGY ==================== */}
+      <section className="relative section-padding bg-slate-900 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <motion.div
+          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 right-[10%] w-72 h-72 bg-accent/10 rounded-full blur-3xl"
+        />
+        <div className="relative max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <span className="text-accent-light text-sm font-semibold tracking-wider uppercase">
+                Our Methodology For Success
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mt-4">
+                How we bring ideas{" "}
+                <span className="text-accent-light">to life.</span>
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {methodology.map((item, i) => (
+              <AnimatedSection key={item.step} delay={i * 0.1}>
+                <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-accent/30 transition-all duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-accent-light font-heading font-bold text-lg">
+                        {item.step}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-heading font-bold text-white pt-2 group-hover:text-accent-light transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+                  <p className="text-accent-light text-sm italic mb-3">
+                    {item.value}
+                  </p>
+                  <p className="text-xs text-slate-500">
+                    <span className="text-slate-300 font-medium">Deliverables:</span>{" "}
+                    {item.deliverables}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== STATS / MILESTONES ==================== */}
+      <StatsSection />
+
+      {/* ==================== TESTIMONIALS ==================== */}
+      <section className="relative section-padding bg-canvas overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <span className="label-text">Hear From Our Happy Clients</span>
+              <h2 className="heading-lg mt-4">
+                Real results,{" "}
+                <span className="text-gradient">real words.</span>
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <AnimatedSection key={t.name} delay={i * 0.1}>
+                <div className="glass-card p-8 h-full flex flex-col relative">
+                  <Quote size={32} className="text-accent/20 mb-4" />
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <Star
+                        key={si}
+                        size={14}
+                        className="text-amber fill-amber"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-6 italic">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="pt-4 border-t border-slate-100">
+                    <div className="font-semibold text-slate-900 text-sm">
+                      {t.name}
+                    </div>
+                    <div className="text-xs text-slate-400">
+                      {t.role}, {t.company}
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
+      </section>
+
+      {/* ==================== BLOG PREVIEW ==================== */}
+      <section className="relative section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+              <div>
+                <span className="label-text">Latest Insights &amp; Inspiration</span>
+                <h2 className="heading-lg mt-4">
+                  Ideas that{" "}
+                  <span className="text-gradient">move you forward.</span>
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-accent hover:text-accent-light font-medium transition-colors text-sm"
+              >
+                View All Posts
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {blogPosts.map((post, i) => (
+              <AnimatedSection key={post.slug} delay={i * 0.1}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group block glass-card-hover overflow-hidden h-full"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                      <span>{post.date}</span>
+                      <span className="flex items-center gap-1">
+                        <Clock size={12} />
+                        {post.readTime}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-heading font-bold text-slate-900 group-hover:text-accent transition-colors leading-snug">
+                      {post.title}
+                    </h3>
+                    <span className="inline-flex items-center gap-1 text-accent text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                      Read More <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FAQ ==================== */}
+      <section className="relative section-padding bg-canvas overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -257,9 +597,8 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
       </section>
 
-      {/* Cost Estimator Section */}
+      {/* ==================== COST ESTIMATOR ==================== */}
       <section className="relative section-padding bg-white">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-canvas to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -279,33 +618,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
+      {/* ==================== CTA ==================== */}
+      <section className="relative section-padding bg-slate-900 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <motion.div
+          animate={{ x: [0, 25, 0], y: [0, -15, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 left-[15%] w-64 h-64 bg-accent/15 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 right-[15%] w-72 h-72 bg-accent/10 rounded-full blur-3xl"
+        />
+
         <div className="relative max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <span className="label-text">Let&apos;s Talk</span>
-            <h2 className="heading-lg mt-4 mb-6">
-              See how we&apos;d approach your{" "}
-              <span className="text-gradient">project.</span>
+            <p className="text-accent-light text-sm font-semibold tracking-wider uppercase mb-4">
+              Let&apos;s Get Started
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+              Ready to build something{" "}
+              <span className="text-accent-light">great?</span>
             </h2>
-            <p className="text-slate-500 mb-10 max-w-xl mx-auto">
-              No pressure, no jargon — just a straight conversation about what
-              you need.
+            <p className="text-slate-300 mb-10 max-w-xl mx-auto text-lg">
+              Strategy-led. Design-driven. Results-focused. Let&apos;s talk about your next project.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-accent/25"
               >
-                Get in touch
+                Book a Consultation
+                <ArrowRight size={16} />
               </Link>
               <a
-                href="mailto:touchbrightconsults@gmail.com"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-slate-300 hover:border-accent/50 text-primary font-medium rounded-full transition-all duration-300 hover:bg-white"
+                href="https://wa.me/254701922375"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 hover:border-accent/50 text-white font-medium rounded-full transition-all duration-300 hover:bg-white/10"
               >
-                Email us directly
+                Chat on WhatsApp
               </a>
             </div>
           </AnimatedSection>

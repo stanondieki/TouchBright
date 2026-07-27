@@ -64,10 +64,8 @@ export default function StatsSection() {
         className="absolute top-1/3 right-1/3 w-64 h-64 bg-amber/8 rounded-full blur-3xl"
       />
 
-      {/* Top gradient blending from hero */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-800 to-transparent" />
-      {/* Bottom gradient blending into white */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-slate-800/40 to-white" />
+      {/* Bottom gradient blending into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-canvas" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
