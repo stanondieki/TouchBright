@@ -84,14 +84,16 @@ const portfolio = [
 ];
 
 const tools = [
-  { name: "Figma", type: "Design Tool" },
-  { name: "Next.js", type: "Web Framework" },
-  { name: "React", type: "UI Library" },
-  { name: "TypeScript", type: "Language" },
-  { name: "Tailwind", type: "CSS Framework" },
-  { name: "Node.js", type: "Backend" },
-  { name: "PostgreSQL", type: "Database" },
-  { name: "AWS", type: "Cloud Platform" },
+  { name: "Figma", type: "Design Tool", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Next.js", type: "Web Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "React", type: "UI Library", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "TypeScript", type: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Tailwind", type: "CSS Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Node.js", type: "Backend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "PostgreSQL", type: "Database", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "AWS", type: "Cloud Platform", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "PHP", type: "Language", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+  { name: "Laravel", type: "PHP Framework", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" },
 ];
 
 const methodology = [
@@ -268,6 +270,49 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* ==================== TRUSTED BY ==================== */}
+      <section className="py-12 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-shrink-0">
+              <h3 className="text-sm font-heading font-bold text-slate-900 uppercase tracking-wider whitespace-nowrap">
+                Trusted By<br />Companies
+              </h3>
+            </div>
+            <div className="w-px h-10 bg-slate-200 hidden md:block" />
+            <div className="flex-1 overflow-hidden relative">
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+              <div className="animate-marquee flex items-center gap-16 whitespace-nowrap">
+                {[
+                  "Solutil.Connect",
+                  "KIPM",
+                  "DC & Sons",
+                  "Safaricom",
+                  "Equity Bank",
+                  "KCB Group",
+                  "Twiga Foods",
+                  "Solutil.Connect",
+                  "KIPM",
+                  "DC & Sons",
+                  "Safaricom",
+                  "Equity Bank",
+                  "KCB Group",
+                  "Twiga Foods",
+                ].map((name, i) => (
+                  <span
+                    key={`${name}-${i}`}
+                    className="text-slate-400 font-heading font-bold text-xl md:text-2xl tracking-wide hover:text-accent transition-colors cursor-default select-none"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== SERVICES ==================== */}
       <section className="relative section-padding bg-white">
         <div className="max-w-7xl mx-auto">
@@ -360,10 +405,10 @@ export default function HomePage() {
       </section>
 
       {/* ==================== TOOLBOX ==================== */}
-      <section className="relative section-padding bg-white">
+      <section className="relative section-padding bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <span className="label-text">Our Toolbox For Innovation</span>
               <h2 className="heading-lg mt-4">
                 Technologies we{" "}
@@ -373,31 +418,100 @@ export default function HomePage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-              {tools.map((tool, i) => (
-                <motion.div
-                  key={tool.name}
-                  whileHover={{ y: -4, scale: 1.05 }}
-                  className="flex flex-col items-center gap-2 p-5 rounded-2xl border border-slate-100 bg-white hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all cursor-default"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <span className="text-accent font-heading font-bold text-sm">
-                      {tool.name.slice(0, 2).toUpperCase()}
-                    </span>
+            <div className="flex justify-center">
+              <div className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] md:w-[520px] md:h-[520px] lg:w-[600px] lg:h-[600px]">
+                {/* Orbit rings */}
+                <div className="absolute inset-0 rounded-full border border-slate-200/60" />
+                <div className="absolute inset-[15%] rounded-full border border-slate-200/40" />
+                <div className="absolute inset-[35%] rounded-full border border-accent/10" />
+
+                {/* Center hub */}
+                <div className="absolute inset-[35%] rounded-full bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-heading font-bold text-accent">10+</div>
+                    <div className="text-[10px] md:text-xs text-slate-500 font-medium">Technologies</div>
                   </div>
-                  <span className="text-sm font-semibold text-slate-900 text-center">
-                    {tool.name}
-                  </span>
-                  <span className="text-[10px] text-slate-400 text-center">
-                    {tool.type}
-                  </span>
+                </div>
+
+                {/* Outer orbit - rotating */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  {tools.slice(0, 5).map((tool, i) => {
+                    const angle = (i / 5) * 360;
+                    const rad = (angle * Math.PI) / 180;
+                    const x = 50 + 48 * Math.cos(rad);
+                    const y = 50 + 48 * Math.sin(rad);
+                    return (
+                      <motion.div
+                        key={tool.name}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
+                        style={{ left: `${x}%`, top: `${y}%` }}
+                        whileHover={{ scale: 1.3 }}
+                      >
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                          className="relative"
+                        >
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-white border border-slate-200 shadow-md flex items-center justify-center p-2 group-hover:border-accent group-hover:shadow-lg group-hover:shadow-accent/20 transition-all">
+                            <img src={tool.logo} alt={tool.name} className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-contain" />
+                          </div>
+                          <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-[10px] sm:text-xs font-semibold text-slate-900 bg-white px-2 py-0.5 rounded-full shadow-sm border border-slate-100">
+                              {tool.name}
+                            </span>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
                 </motion.div>
-              ))}
+
+                {/* Inner orbit - rotating opposite */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-[15%]"
+                >
+                  {tools.slice(5).map((tool, i) => {
+                    const angle = (i / 5) * 360;
+                    const rad = (angle * Math.PI) / 180;
+                    const x = 50 + 46 * Math.cos(rad);
+                    const y = 50 + 46 * Math.sin(rad);
+                    return (
+                      <motion.div
+                        key={tool.name}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
+                        style={{ left: `${x}%`, top: `${y}%` }}
+                        whileHover={{ scale: 1.3 }}
+                      >
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                          className="relative"
+                        >
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl bg-white border border-slate-200 shadow-md flex items-center justify-center p-2 group-hover:border-accent group-hover:shadow-lg group-hover:shadow-accent/20 transition-all">
+                            <img src={tool.logo} alt={tool.name} className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain" />
+                          </div>
+                          <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-[10px] sm:text-xs font-semibold text-slate-900 bg-white px-2 py-0.5 rounded-full shadow-sm border border-slate-100">
+                              {tool.name}
+                            </span>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </div>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <div className="mt-10 text-center">
+            <div className="mt-12 text-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all text-sm"

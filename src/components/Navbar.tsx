@@ -21,8 +21,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const isHome = pathname === "/";
-  const isTransparent = isHome && !scrolled;
+  const darkHeroPages = ["/", "/services", "/contact", "/ballpark"];
+  const hasDarkHero = darkHeroPages.includes(pathname) || pathname.startsWith("/services/");
+  const isTransparent = hasDarkHero && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);

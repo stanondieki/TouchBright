@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import FloatingQuote from "@/components/FloatingQuote";
 import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFloat />
+        <FloatingQuote />
       </body>
     </html>
   );

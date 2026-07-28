@@ -81,6 +81,20 @@ body {
   background: #059669;
 }
 
+/* Marquee scroll animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Page transition */
 .page-transition {
   animation: fadeIn 0.5s ease-out;
