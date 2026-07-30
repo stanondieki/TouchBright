@@ -19,6 +19,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import CostEstimator from "@/components/CostEstimator";
 import StatsSection from "@/components/StatsSection";
+import Typewriter from "@/components/Typewriter";
 
 const services = [
   {
@@ -69,17 +70,17 @@ const portfolio = [
   {
     title: "Retail Inventory Dashboard",
     category: "Software",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    image: "https://images.pexels.com/photos/36733293/pexels-photo-36733293.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
   },
   {
     title: "E-commerce Redesign",
     category: "Web Design",
-    image: "https://images.unsplash.com/photo-1557821556-044d29930bd9?w=600&q=80",
+    image: "https://images.pexels.com/photos/5668778/pexels-photo-5668778.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
   },
   {
     title: "PayFlow Brand Identity",
     category: "Graphic Design",
-    image: "https://images.unsplash.com/photo-1626785774573-4b7787643978?w=600&q=80",
+    image: "https://images.pexels.com/photos/7971550/pexels-photo-7971550.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
   },
 ];
 
@@ -159,21 +160,21 @@ const blogPosts = [
   {
     title: "Why Your Business Needs a Dashboard (Not More Spreadsheets)",
     slug: "why-your-business-needs-a-dashboard",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+    image: "https://images.pexels.com/photos/9301763/pexels-photo-9301763.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
     date: "Jun 15, 2025",
     readTime: "5 min",
   },
   {
     title: "Choosing the Right Tech Stack: A Guide for Non-Technical Founders",
     slug: "choosing-the-right-tech-stack",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+    image: "https://images.pexels.com/photos/7191982/pexels-photo-7191982.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
     date: "Jun 8, 2025",
     readTime: "7 min",
   },
   {
     title: "5 Common Website Mistakes Killing Your Conversions",
     slug: "common-website-mistakes-killing-conversions",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    image: "https://images.pexels.com/photos/3861077/pexels-photo-3861077.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
     date: "May 1, 2025",
     readTime: "5 min",
   },
@@ -186,8 +187,8 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&q=80"
-            alt="Team collaborating"
+            src="https://images.pexels.com/photos/30689114/pexels-photo-30689114.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1"
+            alt="African business team collaborating"
             className="w-full h-full object-cover"
           />
         </div>
@@ -216,7 +217,11 @@ export default function HomePage() {
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-tight text-white mb-6"
             >
               We Build Systems &amp; Brands That{" "}
-              <span className="text-accent-light">Drive Growth</span>
+              <span className="text-accent-light">
+                <Typewriter
+                  words={["Drive Growth", "Convert", "Stand Out", "Scale Fast", "Inspire Trust"]}
+                />
+              </span>
             </motion.h1>
 
             <motion.p
@@ -283,29 +288,31 @@ export default function HomePage() {
             <div className="flex-1 overflow-hidden relative">
               <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
               <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
-              <div className="animate-marquee flex items-center gap-16 whitespace-nowrap">
+              <div className="animate-marquee flex items-center gap-20 whitespace-nowrap">
                 {[
-                  "Solutil.Connect",
-                  "KIPM",
-                  "DC & Sons",
-                  "Safaricom",
-                  "Equity Bank",
-                  "KCB Group",
-                  "Twiga Foods",
-                  "Solutil.Connect",
-                  "KIPM",
-                  "DC & Sons",
-                  "Safaricom",
-                  "Equity Bank",
-                  "KCB Group",
-                  "Twiga Foods",
-                ].map((name, i) => (
-                  <span
-                    key={`${name}-${i}`}
-                    className="text-slate-400 font-heading font-bold text-xl md:text-2xl tracking-wide hover:text-accent transition-colors cursor-default select-none"
+                  { name: "Solutil.Connect", logo: "/log.png" },
+                  { name: "KIPM", logo: "/logo.png" },
+                  { name: "Solutil.Connect", logo: "/log.png" },
+                  { name: "KIPM", logo: "/logo.png" },
+                  { name: "Solutil.Connect", logo: "/log.png" },
+                  { name: "KIPM", logo: "/logo.png" },
+                ].map((company, i) => (
+                  <div
+                    key={`${company.name}-${i}`}
+                    className="flex items-center gap-3 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 cursor-default"
                   >
-                    {name}
-                  </span>
+                    {company.logo ? (
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        className="h-14 md:h-16 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-slate-400 font-heading font-bold text-xl md:text-2xl tracking-wide hover:text-accent transition-colors select-none">
+                        {company.name}
+                      </span>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
@@ -355,7 +362,7 @@ export default function HomePage() {
 
       {/* ==================== PORTFOLIO PREVIEW ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -401,7 +408,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== TOOLBOX ==================== */}
@@ -527,12 +534,7 @@ export default function HomePage() {
       {/* ==================== METHODOLOGY ==================== */}
       <section className="relative section-padding bg-slate-900 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-0 world-map-bg"
         />
         <motion.div
           animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
@@ -588,7 +590,7 @@ export default function HomePage() {
 
       {/* ==================== TESTIMONIALS ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -630,7 +632,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== BLOG PREVIEW ==================== */}
@@ -693,7 +695,7 @@ export default function HomePage() {
 
       {/* ==================== FAQ ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -708,7 +710,7 @@ export default function HomePage() {
             <FAQAccordion />
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== COST ESTIMATOR ==================== */}
@@ -735,12 +737,7 @@ export default function HomePage() {
       {/* ==================== CTA ==================== */}
       <section className="relative section-padding bg-slate-900 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-0 world-map-bg"
         />
         <motion.div
           animate={{ x: [0, 25, 0], y: [0, -15, 0] }}

@@ -310,19 +310,14 @@ export default function BallparkPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-slate-900 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-0 world-map-bg"
         />
         <motion.div
           animate={{ x: [0, 25, 0], y: [0, -15, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-10 right-[15%] w-60 h-60 bg-accent/15 rounded-full blur-3xl"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-canvas" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-canvas" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <AnimatedSection>

@@ -88,12 +88,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-slate-900 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-0 world-map-bg"
         />
         <motion.div
           animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
@@ -105,7 +100,7 @@ export default function ContactPage() {
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-10 left-[5%] w-56 h-56 bg-accent/10 rounded-full blur-3xl"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-canvas" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-canvas" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <AnimatedSection>

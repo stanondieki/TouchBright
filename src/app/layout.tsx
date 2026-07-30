@@ -24,7 +24,7 @@ export default function RootLayout({
         <link rel="icon" href="/TBLogo.png" />
         <link rel="apple-touch-icon" href="/TBLogo.png" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased font-body">
         <ScrollProgress />
         <Navbar />
         <main className="min-h-screen">

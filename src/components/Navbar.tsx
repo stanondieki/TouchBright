@@ -21,7 +21,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const darkHeroPages = ["/", "/services", "/contact", "/ballpark"];
+  const darkHeroPages = ["/", "/services", "/contact", "/ballpark", "/process", "/why-us"];
   const hasDarkHero = darkHeroPages.includes(pathname) || pathname.startsWith("/services/");
   const isTransparent = hasDarkHero && !scrolled;
 

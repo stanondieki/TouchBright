@@ -39,12 +39,7 @@ export default function StatsSection() {
     <section className="relative py-16 md:py-20 bg-slate-900 overflow-hidden">
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-        }}
+        className="absolute inset-0 world-map-bg"
       />
 
       {/* Animated gradient orbs */}
@@ -65,7 +60,7 @@ export default function StatsSection() {
       />
 
       {/* Bottom gradient blending into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-canvas" />
+      <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-canvas" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">

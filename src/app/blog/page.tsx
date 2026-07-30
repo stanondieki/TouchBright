@@ -11,7 +11,7 @@ export const blogPosts = [
     category: "Data",
     date: "2025-06-15",
     readingTime: "5 min",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "https://images.pexels.com/photos/9301763/pexels-photo-9301763.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "If you're running a growing business, you probably have spreadsheets for inventory, another for sales, another for staff attendance, and maybe a WhatsApp group where people send updates. It works — until it doesn't.",
@@ -30,7 +30,7 @@ export const blogPosts = [
     category: "Software",
     date: "2025-06-08",
     readingTime: "7 min",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    image: "https://images.pexels.com/photos/7191982/pexels-photo-7191982.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "Every founder faces this moment: a developer asks what tech stack you want to use, and you have no idea what they're talking about. So you Google it, fall down a rabbit hole of Reddit threads, and end up more confused than when you started.",
@@ -49,7 +49,7 @@ export const blogPosts = [
     category: "Branding",
     date: "2025-05-28",
     readingTime: "4 min",
-    image: "https://images.unsplash.com/photo-1626785774625-f9b3e3a3e3e3?w=800&q=80",
+    image: "https://images.pexels.com/photos/5749152/pexels-photo-5749152.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "Your customer finds you on Instagram, visits your website, receives a PDF invoice, and picks up a business card at a networking event. If each of these looks like it was made by a different company, you have a problem.",
@@ -67,7 +67,7 @@ export const blogPosts = [
     category: "Process",
     date: "2025-05-15",
     readingTime: "6 min",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    image: "https://images.pexels.com/photos/36733293/pexels-photo-36733293.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "Most people think building software is like building a house: you make a blueprint, you follow it, and you get exactly what was drawn. In reality, it's closer to growing a garden: you start with a plan, but you adapt as things develop.",
@@ -86,7 +86,7 @@ export const blogPosts = [
     category: "Web",
     date: "2025-05-01",
     readingTime: "5 min",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "https://images.pexels.com/photos/3861077/pexels-photo-3861077.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "We audit a lot of websites. Not for fun — usually because a client says 'I get visitors but nobody contacts me.' After doing this dozens of times, the same five issues come up again and again.",
@@ -105,7 +105,7 @@ export const blogPosts = [
     category: "Process",
     date: "2025-04-20",
     readingTime: "3 min",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    image: "https://images.pexels.com/photos/30689114/pexels-photo-30689114.jpeg?auto=compress&cs=tinysrgb&w=800&dpr=1",
     author: "Touchbright Team",
     content: [
       "If you've worked with a tech agency before, you've probably experienced this: the project gets delivered, everyone celebrates, and then... silence. Emails go unanswered. Bugs take weeks to fix. You feel abandoned.",

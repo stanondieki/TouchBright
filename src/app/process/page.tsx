@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const steps = [
@@ -73,25 +74,109 @@ const steps = [
 export default function ProcessPage() {
   return (
     <div className="page-transition">
-      {/* Hero */}
-      <section className="section-padding pt-32 bg-white relative overflow-hidden">
-        {/* Ambient glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber/8 rounded-full blur-3xl opacity-50" />
+      {/* Hero — Interactive Banner */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20">
+        {/* Background image with parallax */}
+        <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src="https://images.pexels.com/photos/36733293/pexels-photo-36733293.jpeg?auto=compress&cs=tinysrgb&w=1600&dpr=1"
+            alt="African business team in strategy meeting"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-        <div className="relative max-w-7xl mx-auto">
+        {/* Animated gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/80 to-primary-dark/40" />
+        <motion.div
+          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 right-[10%] w-72 h-72 bg-accent/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, -25, 0], y: [0, 15, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 left-[5%] w-64 h-64 bg-accent/10 rounded-full blur-3xl"
+        />
+
+        {/* World map watermark */}
+        <div className="absolute inset-0 world-map-bg" />
+
+        {/* Floating step badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="absolute top-[22%] right-[8%] hidden lg:block"
+        >
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 shadow-xl"
+          >
+            <div className="text-3xl font-heading font-bold text-accent-light">5</div>
+            <div className="text-xs text-white/70 mt-1">Clear Stages</div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-[18%] right-[14%] hidden lg:block"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 shadow-xl"
+          >
+            <div className="text-3xl font-heading font-bold text-accent-light">100%</div>
+            <div className="text-xs text-white/70 mt-1">Transparency</div>
+          </motion.div>
+        </motion.div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <AnimatedSection>
-            <span className="label-text">Process</span>
-            <h1 className="heading-xl mt-4 mb-6">
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 border border-accent/50 text-accent-light text-xs uppercase tracking-wider rounded-full mb-6"
+            >
+              Process
+            </motion.span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-tight text-white mb-6">
               How a project runs,{" "}
-              <span className="text-gradient">start to finish.</span>
+              <span className="text-accent-light">start to finish.</span>
             </h1>
-            <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
-              The same five stages whether we&apos;re shipping a dashboard, a
-              website, a network upgrade or a print run — so you always know
-              what&apos;s next.
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
+              The same five stages whether we&apos;re shipping a dashboard, a website, a network upgrade or a print run — so you always know what&apos;s next.
             </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap gap-3"
+            >
+              {steps.map((step) => (
+                <span
+                  key={step.number}
+                  className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium rounded-full"
+                >
+                  {step.number} — {step.title}
+                </span>
+              ))}
+            </motion.div>
           </AnimatedSection>
         </div>
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* Steps */}

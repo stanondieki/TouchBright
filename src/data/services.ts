@@ -21,8 +21,8 @@ export const services = [
       "Our web development services are designed to create dynamic, responsive, and high-performing websites that deliver speed, beauty, and functionality. From corporate landing pages to complex web apps, we design and build sites that reflect your brand while driving engagement and measurable results.",
     descriptionExtra:
       "We develop websites using modern techniques and platforms including React, Next.js, WordPress, Webflow, and custom stacks. Whether it's a sleek corporate site, a high-converting landing page, or a complex web app, we ensure your online presence is secure, scalable, and optimized for performance and SEO.",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=80",
+    image: "https://images.pexels.com/photos/6578413/pexels-photo-6578413.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/7971550/pexels-photo-7971550.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Automatic compatibility and reach",
       "Seamless mobile responsiveness",
@@ -85,8 +85,8 @@ export const services = [
       "From logos to social media posts, from packaging to annual reports — we create visual assets that tell your story consistently across every medium. Whether it's digital or print, we make sure your brand looks professional, polished, and unmistakably yours.",
     descriptionExtra:
       "Our design team combines creativity with strategy to deliver visuals that not only look stunning but also communicate your brand message effectively. Every color, typeface, and layout choice is intentional and aligned with your business goals.",
-    image: "https://images.unsplash.com/photo-1626785774573-4b7787643978?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=700&q=80",
+    image: "https://images.pexels.com/photos/5749152/pexels-photo-5749152.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/6621022/pexels-photo-6621022.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Consistent brand recognition",
       "Professional visual identity",
@@ -149,8 +149,8 @@ export const services = [
       "Off-the-shelf software rarely fits. We build custom web and mobile applications, internal tools, and automation systems that match your workflows exactly. Scoped clearly, documented properly, and handed over so you're never locked in.",
     descriptionExtra:
       "Our development process is agile and transparent. You see progress weekly, give feedback early, and never get surprised by the final product. We use modern stacks (React, Next.js, Node.js, Python) and prioritize clean code, performance, and security.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=700&q=80",
+    image: "https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/7988113/pexels-photo-7988113.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Custom-fit to your workflows",
       "Scalable & future-proof architecture",
@@ -213,8 +213,8 @@ export const services = [
       "Whether you're moving to the cloud, setting up a new office, or connecting remote teams — we design, deploy, and manage infrastructure that stays reliable. No more downtime excuses, no more 'the internet is slow' mornings.",
     descriptionExtra:
       "We work with AWS, Azure, and Google Cloud to build infrastructure that's secure, scalable, and cost-effective. From simple office networks to multi-site enterprise setups, we handle everything from planning to ongoing monitoring.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80",
+    image: "https://images.pexels.com/photos/38246354/pexels-photo-38246354.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/37730212/pexels-photo-37730212.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "99.9% uptime guarantee",
       "Secure remote access (VPN)",
@@ -277,8 +277,8 @@ export const services = [
       "Most businesses only think about security after something goes wrong. We help you get ahead of threats with assessments, staff training, and layered protection that keeps your data and your clients' data safe. Compliance-ready, audit-ready.",
     descriptionExtra:
       "Our cybersecurity services cover everything from vulnerability scanning and penetration testing to staff awareness programs and incident response planning. We help you meet compliance requirements (GDPR, ISO 27001) and build a security culture.",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=700&q=80",
+    image: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/5935789/pexels-photo-5935789.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Proactive threat detection",
       "Staff security awareness",
@@ -341,8 +341,8 @@ export const services = [
       "We don't just drive traffic — we drive the right traffic. Through search optimization, social media strategy, and targeted campaigns, we make sure your ideal customers find you first. Everything measurable, everything optimized monthly.",
     descriptionExtra:
       "Our marketing approach is data-driven. We set up proper analytics, track every conversion, and optimize campaigns monthly. No vanity metrics — just real leads, real growth, and real ROI you can measure.",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80",
+    image: "https://images.pexels.com/photos/6893916/pexels-photo-6893916.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/5668778/pexels-photo-5668778.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Targeted audience reach",
       "Measurable ROI on every campaign",
@@ -405,8 +405,8 @@ export const services = [
       "A dedicated help desk for when things break, slow down, or confuse your team. We handle hardware, software, troubleshooting, and maintenance so your staff can focus on their actual jobs. Think of us as your outsourced IT department.",
     descriptionExtra:
       "We provide tiered support plans that scale with your business. From basic remote troubleshooting to full on-site support with proactive monitoring, we keep your systems running smoothly so you never lose a productive hour.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=700&q=80",
-    benefitsImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80",
+    image: "https://images.pexels.com/photos/5467562/pexels-photo-5467562.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
+    benefitsImage: "https://images.pexels.com/photos/19805877/pexels-photo-19805877.jpeg?auto=compress&cs=tinysrgb&w=700&dpr=1",
     benefits: [
       "Fast response times (4-hour SLA)",
       "Reduced IT downtime",
