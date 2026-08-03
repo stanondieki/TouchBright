@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import FloatingQuote from "@/components/FloatingQuote";
 import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({
         <link rel="icon" href="/TBLogo.png" />
         <link rel="apple-touch-icon" href="/TBLogo.png" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased font-body">
         <ScrollProgress />
         <Navbar />
         <main className="min-h-screen">
@@ -31,6 +32,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFloat />
+        <FloatingQuote />
       </body>
     </html>
   );
