@@ -473,17 +473,17 @@ export default function WhyUsPage() {
             <p className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
               We started Touchbright Consults because too many businesses were being sold pieces — a website here, a report there — with no one accountable for how they fit together.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-5 mt-10 pb-4">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-accent/25"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-accent hover:bg-accent-light text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-accent/25"
               >
                 Start a conversation
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/40 hover:border-accent/60 hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-300"
               >
                 See our work
               </Link>
@@ -492,11 +492,11 @@ export default function WhyUsPage() {
         </div>
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/80 z-10" />
       </section>
 
       {/* Insight Graphs */}
-      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-white overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -597,7 +597,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Story + Image */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
@@ -663,7 +663,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="section-padding bg-canvas">
+      <section className="section-padding bg-canvas relative">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <span className="label-text">What That Looks Like</span>
@@ -700,7 +700,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* What Changes — with image */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
             {/* Left: image */}

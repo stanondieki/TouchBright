@@ -270,7 +270,7 @@ export default function BallparkPage() {
   };
 
   const formatPrice = (amount: number) => {
-    return `KES ${amount.toLocaleString()}`;
+    return `$${Math.round(amount / 130).toLocaleString()}`;
   };
 
   const handleServiceSelect = (idx: number) => {
@@ -317,7 +317,7 @@ export default function BallparkPage() {
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-10 right-[15%] w-60 h-60 bg-accent/15 rounded-full blur-3xl"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-canvas" />
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-canvas/80 z-10" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <AnimatedSection>

@@ -17,7 +17,7 @@ export default function ServicesPage() {
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-10 right-[10%] w-72 h-72 bg-accent/15 rounded-full blur-3xl"
         />
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/80 z-10" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <AnimatedSection>
@@ -78,28 +78,71 @@ export default function ServicesPage() {
       </section>
 
       {/* About Banner */}
-      <section className="relative py-16 bg-accent overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/3861077/pexels-photo-3861077.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1"
+            alt="Creative team working"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/95 via-accent/90 to-accent/80" />
+
+        {/* Animated orbs */}
+        <motion.div
+          animate={{ x: [0, 25, 0], y: [0, -15, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-10 right-[10%] w-64 h-64 bg-white/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 left-[5%] w-72 h-72 bg-white/5 rounded-full blur-3xl"
+        />
+
+        {/* Decorative circles */}
         <motion.div
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -right-20 top-1/2 -translate-y-1/2 w-48 h-48 border-[3px] border-white/20 rounded-full"
+          className="absolute -right-20 top-1/2 -translate-y-1/2 w-56 h-56 border-[3px] border-white/15 rounded-full"
         />
+        <motion.div
+          animate={{ rotate: [0, -360] }}
+          transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+          className="absolute -right-10 top-1/2 -translate-y-1/2 w-40 h-40 border-[2px] border-dashed border-white/10 rounded-full"
+        />
+
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <p className="text-white/90 leading-relaxed text-lg">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-white/95 leading-relaxed text-lg md:text-xl"
+              >
                 We specialize in delivering innovative and impactful solutions that elevate brands and drive results. From digital experiences to print media, our team of creative professionals is dedicated to transforming ideas into compelling stories that resonate with audiences.
-              </p>
-              <div className="grid grid-cols-3 gap-8 mt-8">
+              </motion.p>
+              <div className="grid grid-cols-3 gap-6 mt-10">
                 {[
                   { value: "50+", label: "Projects Completed" },
                   { value: "5+", label: "Years Of Experience" },
                   { value: "98%", label: "Client Satisfaction" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-2xl md:text-3xl font-heading font-bold text-white">{stat.value}</div>
-                    <div className="text-xs text-white/70 mt-1">{stat.label}</div>
-                  </div>
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className="relative"
+                  >
+                    <div className="text-3xl md:text-4xl font-heading font-bold text-white">{stat.value}</div>
+                    <div className="text-sm text-white/70 mt-2 font-medium">{stat.label}</div>
+                    <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-white/20 rounded-tl-lg" />
+                  </motion.div>
                 ))}
               </div>
             </AnimatedSection>
@@ -107,13 +150,17 @@ export default function ServicesPage() {
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="relative w-40 h-40"
+                className="relative w-48 h-48 md:w-56 md:h-56"
               >
                 <div className="absolute inset-0 border-[3px] border-dashed border-white/30 rounded-full" />
                 <div className="absolute inset-4 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                  <span className="text-white font-heading font-bold text-sm text-center leading-tight">
+                  <motion.span
+                    animate={{ rotate: [0, -360] }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="text-white font-heading font-bold text-base md:text-lg text-center leading-tight"
+                  >
                     Creative.<br />Strategic.<br />Results.
-                  </span>
+                  </motion.span>
                 </div>
               </motion.div>
             </div>

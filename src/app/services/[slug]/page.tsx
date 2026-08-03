@@ -65,7 +65,7 @@ export default function ServiceDetailPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-16 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 world-map-bg" />
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/80 z-10" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-12">
           <AnimatedSection>

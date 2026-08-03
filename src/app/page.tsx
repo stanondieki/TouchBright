@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   Monitor,
@@ -17,9 +18,27 @@ import {
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import FAQAccordion from "@/components/FAQAccordion";
-import CostEstimator from "@/components/CostEstimator";
 import StatsSection from "@/components/StatsSection";
-import Typewriter from "@/components/Typewriter";
+import WaveText from "@/components/WaveText";
+
+const heroSlides = [
+  {
+    image: "https://images.pexels.com/photos/30689114/pexels-photo-30689114.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1",
+    alt: "African business team collaborating",
+  },
+  {
+    image: "https://images.pexels.com/photos/3861077/pexels-photo-3861077.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1",
+    alt: "Creative strategy session",
+  },
+  {
+    image: "https://images.pexels.com/photos/5668778/pexels-photo-5668778.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1",
+    alt: "Digital innovation workspace",
+  },
+  {
+    image: "https://images.pexels.com/photos/7971550/pexels-photo-7971550.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1",
+    alt: "Building solutions that work",
+  },
+];
 
 const services = [
   {
@@ -181,17 +200,36 @@ const blogPosts = [
 ];
 
 export default function HomePage() {
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="page-transition">
       {/* ==================== HERO ==================== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.pexels.com/photos/30689114/pexels-photo-30689114.jpeg?auto=compress&cs=tinysrgb&w=1400&dpr=1"
-            alt="African business team collaborating"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        {/* Slideshow background */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={heroSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={heroSlides[heroSlide].image}
+              alt={heroSlides[heroSlide].alt}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/75 to-primary-dark/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-20 w-full">
@@ -218,7 +256,7 @@ export default function HomePage() {
             >
               We Build Systems &amp; Brands That{" "}
               <span className="text-accent-light">
-                <Typewriter
+                <WaveText
                   words={["Drive Growth", "Convert", "Stand Out", "Scale Fast", "Inspire Trust"]}
                 />
               </span>
@@ -259,11 +297,14 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Bottom fade — subtle, below content */}
+        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-white/80 z-10" />
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
         >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-1.5">
             <motion.div
@@ -292,10 +333,10 @@ export default function HomePage() {
                 {[
                   { name: "Solutil.Connect", logo: "/log.png" },
                   { name: "KIPM", logo: "/logo.png" },
-                  { name: "Solutil.Connect", logo: "/log.png" },
-                  { name: "KIPM", logo: "/logo.png" },
-                  { name: "Solutil.Connect", logo: "/log.png" },
-                  { name: "KIPM", logo: "/logo.png" },
+                  { name: "Airtel", logo: "/Airtel-logo.png" },
+                  { name: "Minet", logo: "/Minet-Logo-red.png" },
+                  { name: "KENIC", logo: "/kenic.jpg" },
+                  { name: "Safaricom", logo: "/saf.png" },
                 ].map((company, i) => (
                   <div
                     key={`${company.name}-${i}`}
@@ -305,7 +346,7 @@ export default function HomePage() {
                       <img
                         src={company.logo}
                         alt={company.name}
-                        className="h-14 md:h-16 w-auto object-contain"
+                        className="h-20 md:h-24 w-auto object-contain"
                       />
                     ) : (
                       <span className="text-slate-400 font-heading font-bold text-xl md:text-2xl tracking-wide hover:text-accent transition-colors select-none">
@@ -362,7 +403,7 @@ export default function HomePage() {
 
       {/* ==================== PORTFOLIO PREVIEW ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -408,7 +449,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== TOOLBOX ==================== */}
@@ -590,7 +631,7 @@ export default function HomePage() {
 
       {/* ==================== TESTIMONIALS ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -632,7 +673,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== BLOG PREVIEW ==================== */}
@@ -695,7 +736,7 @@ export default function HomePage() {
 
       {/* ==================== FAQ ==================== */}
       <section className="relative section-padding bg-canvas overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent" />
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">
@@ -710,28 +751,7 @@ export default function HomePage() {
             <FAQAccordion />
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-b from-transparent to-white" />
-      </section>
-
-      {/* ==================== COST ESTIMATOR ==================== */}
-      <section className="relative section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <span className="label-text">Project Estimator</span>
-              <h2 className="heading-lg mt-4">
-                Get a ballpark{" "}
-                <span className="text-gradient">in 60 seconds.</span>
-              </h2>
-              <p className="text-slate-500 mt-4 max-w-xl mx-auto">
-                Answer a few quick questions and we&apos;ll give you an instant cost range. No email required to see the estimate.
-              </p>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <CostEstimator />
-          </AnimatedSection>
-        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-b from-transparent to-white" />
       </section>
 
       {/* ==================== CTA ==================== */}
