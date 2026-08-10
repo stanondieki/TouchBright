@@ -180,7 +180,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Steps */}
-      <section className="pt-20 pb-24 bg-white">
+      <section id="approach" className="pt-20 pb-24 bg-white scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -198,7 +198,7 @@ export default function ProcessPage() {
             <div className="space-y-12 md:space-y-0">
               {steps.map((step, i) => (
                 <AnimatedSection key={step.number} delay={i * 0.12}>
-                  <div className={`relative md:grid md:grid-cols-2 md:gap-16 md:items-center ${i > 0 ? 'md:mt-16' : ''}`}>
+                  <div id={step.title.toLowerCase()} className={`relative md:grid md:grid-cols-2 md:gap-16 md:items-center ${i > 0 ? 'md:mt-16' : ''} scroll-mt-24`}>
                     {/* Timeline dot */}
                     <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 z-10">
                       <motion.div

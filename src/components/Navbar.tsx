@@ -37,20 +37,20 @@ const navLinks: NavLink[] = [
     href: "/portfolio",
     label: "Work",
     dropdown: [
-      { label: "All Projects", href: "/portfolio", desc: "View our full portfolio" },
-      { label: "Web & UI/UX", href: "/portfolio", desc: "Websites and web apps we've built" },
-      { label: "Software & Dashboards", href: "/portfolio", desc: "Custom software and internal tools" },
-      { label: "Branding & Print", href: "/portfolio", desc: "Visual identities and print work" },
+      { label: "All Projects", href: "/portfolio#projects", desc: "View our full portfolio" },
+      { label: "Web & UI/UX", href: "/portfolio#web", desc: "Websites and web apps we've built" },
+      { label: "Software & Dashboards", href: "/portfolio#software", desc: "Custom software and internal tools" },
+      { label: "Branding & Print", href: "/portfolio#branding", desc: "Visual identities and print work" },
     ],
   },
   {
     href: "/process",
     label: "Process",
     dropdown: [
-      { label: "Our Approach", href: "/process", desc: "How we work with you" },
-      { label: "Discovery", href: "/process", desc: "Understanding your needs" },
-      { label: "Design & Build", href: "/process", desc: "Crafting your solution" },
-      { label: "Launch & Support", href: "/process", desc: "Going live and beyond" },
+      { label: "Our Approach", href: "/process#approach", desc: "How we work with you" },
+      { label: "Discovery", href: "/process#discover", desc: "Understanding your needs" },
+      { label: "Design & Build", href: "/process#design", desc: "Crafting your solution" },
+      { label: "Launch & Support", href: "/process#launch", desc: "Going live and beyond" },
     ],
   },
   { href: "/blog", label: "Blog" },
@@ -58,10 +58,10 @@ const navLinks: NavLink[] = [
     href: "/why-us",
     label: "Why Us",
     dropdown: [
-      { label: "Our Story", href: "/why-us", desc: "Why Touchbright exists" },
-      { label: "Results & Insights", href: "/why-us", desc: "Data that speaks for itself" },
-      { label: "What Changes", href: "/why-us", desc: "Before vs after working with us" },
-      { label: "Client Testimonials", href: "/why-us", desc: "What our clients say" },
+      { label: "Our Story", href: "/why-us#story", desc: "Why Touchbright exists" },
+      { label: "Results & Insights", href: "/why-us#insights", desc: "Data that speaks for itself" },
+      { label: "What Changes", href: "/why-us#changes", desc: "Before vs after working with us" },
+      { label: "Client Testimonials", href: "/why-us#testimonials", desc: "What our clients say" },
     ],
   },
   {
@@ -90,6 +90,23 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleHashScroll = () => {
+      if (typeof window === "undefined") return;
+      const hash = window.location.hash;
+      if (!hash) return;
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    };
+
+    handleHashScroll();
+  }, [pathname]);
 
   return (
     <nav
@@ -157,20 +174,36 @@ export default function Navbar() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden"
                   >
                     <div className="py-2">
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className="block px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-                        >
-                          <div className="text-sm font-semibold text-slate-800 group-hover:text-accent transition-colors">
-                            {item.label}
-                          </div>
-                          {item.desc && (
-                            <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
-                          )}
-                        </Link>
-                      ))}
+                      {link.dropdown.map((item) => {
+                        const [pagePath, hash] = item.href.split("#");
+                        const isSamePage = pagePath === pathname || (pagePath === "" && pathname === "/");
+                        return (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            onClick={(e) => {
+                              if (isSamePage && hash) {
+                                e.preventDefault();
+                                let el = document.getElementById(hash);
+                                if (!el) el = document.getElementById("projects");
+                                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                if (window.history.replaceState) {
+                                  window.history.replaceState(null, "", item.href);
+                                }
+                                setHoveredDropdown(null);
+                              }
+                            }}
+                            className="block px-4 py-2.5 hover:bg-slate-50 transition-colors group"
+                          >
+                            <div className="text-sm font-semibold text-slate-800 group-hover:text-accent transition-colors">
+                              {item.label}
+                            </div>
+                            {item.desc && (
+                              <div className="text-xs text-slate-400 mt-0.5">{item.desc}</div>
+                            )}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </motion.div>
                 )}
@@ -246,16 +279,31 @@ export default function Navbar() {
                       animate={{ height: "auto", opacity: 1 }}
                       className="pl-4 overflow-hidden"
                     >
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className="block py-2 text-sm text-slate-500 hover:text-accent transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                      {link.dropdown.map((item) => {
+                        const [pagePath, hash] = item.href.split("#");
+                        const isSamePage = pagePath === pathname || (pagePath === "" && pathname === "/");
+                        return (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            onClick={(e) => {
+                              if (isSamePage && hash) {
+                                e.preventDefault();
+                                let el = document.getElementById(hash);
+                                if (!el) el = document.getElementById("projects");
+                                if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                if (window.history.replaceState) {
+                                  window.history.replaceState(null, "", item.href);
+                                }
+                              }
+                              setIsOpen(false);
+                            }}
+                            className="block py-2 text-sm text-slate-500 hover:text-accent transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        );
+                      })}
                     </motion.div>
                   )}
                 </div>

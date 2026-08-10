@@ -1,6 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight, Clock } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Practical insights on web design, software, data and IT — written for business owners, not developers.",
+};
 
 export const blogPosts = [
   {

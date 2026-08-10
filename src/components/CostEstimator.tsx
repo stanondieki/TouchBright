@@ -57,6 +57,7 @@ export default function CostEstimator() {
   const [teamSize, setTeamSize] = useState<string | null>(null);
   const [contactInfo, setContactInfo] = useState({ name: "", email: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const steps = ["Project Type", "Features", "Timeline", "Team Size", "Estimate"];
 
@@ -89,8 +90,34 @@ export default function CostEstimator() {
     return true;
   };
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    setSending(true);
+    const est = calculateEstimate();
+    try {
+      await fetch("https://formsubmit.co/ajax/touchbrightconsults@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: contactInfo.name,
+          email: contactInfo.email,
+          projectType: projectTypes.find((t) => t.id === projectType)?.label || "",
+          features: selectedFeatures.join(", ") || "None",
+          timeline: timelines.find((t) => t.id === timeline)?.label || "",
+          teamSize: teamSizes.find((t) => t.id === teamSize)?.label || "",
+          estimate: `$${est.low.toLocaleString()} – $${est.high.toLocaleString()}`,
+          _subject: `Estimate request from ${contactInfo.name || "website visitor"} — Touchbright`,
+          _template: "table",
+        }),
+      });
+    } catch {
+      // Still show success — details are visible on screen; user can reach out via WhatsApp
+    } finally {
+      setSending(false);
+      setSubmitted(true);
+    }
   };
 
   const estimate = step >= 4 ? calculateEstimate() : null;
@@ -341,10 +368,11 @@ export default function CostEstimator() {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full py-3.5 bg-accent hover:bg-accent-light text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+                  disabled={sending}
+                  className="w-full py-3.5 bg-accent hover:bg-accent-light disabled:bg-accent/60 disabled:cursor-wait text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <Mail size={18} />
-                  Send me this estimate
+                  {sending ? "Sending..." : "Send me this estimate"}
                 </button>
               </>
             ) : (
