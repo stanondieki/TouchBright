@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -33,7 +33,7 @@ const projects = [
     title: "School Management System",
     client: "Bright Future Academy",
     category: "Software",
-    image: "https://images.pexels.com/photos/3861077/pexels-photo-3861077.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+    image: "/images/kipm.png",
     description: "Complete school management: grades, attendance, fees, and parent portal.",
     tags: ["Vue", "Node.js", "MySQL"],
     metrics: { label: "Admin time saved", value: "15hrs/wk" },
@@ -133,6 +133,28 @@ export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window === "undefined") return;
+      const hash = window.location.hash.replace("#", "");
+      if (!hash) return;
+
+      const validCategories = ["Web", "Data", "Software", "Branding"];
+      if (validCategories.includes(hash)) {
+        setActiveCategory(hash);
+      }
+
+      setTimeout(() => {
+        const el = document.getElementById("projects");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
   const filteredProjects =
     activeCategory === "All"
       ? projects
@@ -157,7 +179,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Filter + Projects Grid */}
-      <section className="pb-20 bg-white">
+      <section id="projects" className="pb-20 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           {/* Filter buttons */}
           <div className="flex flex-wrap gap-2 mb-10">
@@ -250,7 +272,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="section-padding bg-canvas">
+      <section id="testimonials" className="section-padding bg-canvas scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12">

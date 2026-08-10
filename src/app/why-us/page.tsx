@@ -496,7 +496,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Insight Graphs */}
-      <section className="relative py-20 md:py-28 bg-white overflow-hidden">
+      <section id="insights" className="relative py-20 md:py-28 bg-white overflow-hidden scroll-mt-20">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -597,7 +597,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Story + Image */}
-      <section className="section-padding bg-white relative">
+      <section id="story" className="section-padding bg-white relative scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
@@ -663,7 +663,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="section-padding bg-canvas relative">
+      <section id="values" className="section-padding bg-canvas relative scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <AnimatedSection>
             <span className="label-text">What That Looks Like</span>
@@ -700,7 +700,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* What Changes — with image */}
-      <section className="section-padding bg-white relative">
+      <section id="changes" className="section-padding bg-white relative scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
             {/* Left: image */}
@@ -790,7 +790,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Testimonials — auto-rotating */}
-      <section className="section-padding bg-slate-900 relative overflow-hidden">
+      <section id="testimonials" className="section-padding bg-slate-900 relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 world-map-bg" />
         <motion.div
           animate={{ x: [0, 30, 0], y: [0, -20, 0] }}

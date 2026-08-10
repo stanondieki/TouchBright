@@ -72,15 +72,42 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", service: "", budget: "", message: "" });
-    }, 5000);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/touchbrightconsults@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          service: formData.service,
+          budget: formData.budget,
+          message: formData.message,
+          _subject: `New enquiry from ${formData.name} — Touchbright website`,
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", service: "", budget: "", message: "" });
+      }, 5000);
+    } catch {
+      setError("Something went wrong. Please try again or reach us on WhatsApp.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -393,13 +420,20 @@ export default function ContactPage() {
 
                       <motion.button
                         type="submit"
-                        whileHover={{ scale: 1.01, y: -1 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full py-4 bg-accent hover:bg-accent-light text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30"
+                        disabled={sending}
+                        whileHover={{ scale: sending ? 1 : 1.01, y: sending ? 0 : -1 }}
+                        whileTap={{ scale: sending ? 1 : 0.98 }}
+                        className="w-full py-4 bg-accent hover:bg-accent-light disabled:bg-accent/60 disabled:cursor-wait text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30"
                       >
-                        Send Message
+                        {sending ? "Sending..." : "Send Message"}
                         <Send size={16} />
                       </motion.button>
+
+                      {error && (
+                        <p className="text-sm text-red-500 text-center font-medium">
+                          {error}
+                        </p>
+                      )}
 
                       <p className="text-[11px] text-slate-400 text-center">
                         By submitting, you agree to be contacted regarding your enquiry. We never share your data.
