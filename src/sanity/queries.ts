@@ -1,6 +1,4 @@
-import { groq } from "next-sanity";
-
-export const allPostsQuery = groq`
+export const allPostsQuery = `
   *[_type == "post"] | order(publishedAt desc) {
     _id,
     "slug": slug.current,
@@ -17,7 +15,7 @@ export const allPostsQuery = groq`
   }
 `;
 
-export const postBySlugQuery = groq`
+export const postBySlugQuery = `
   *[_type == "post" && slug.current == $slug][0] {
     _id,
     "slug": slug.current,
@@ -34,6 +32,6 @@ export const postBySlugQuery = groq`
   }
 `;
 
-export const allSlugsQuery = groq`
+export const allSlugsQuery = `
   *[_type == "post" && defined(slug.current)].slug.current
 `;
