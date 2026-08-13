@@ -14,6 +14,7 @@ export type Product = {
   name: string;
   category: string;
   image: string;
+  images?: string[];
   price?: string;
   description: string;
   features: string[];
@@ -217,6 +218,12 @@ export const services = [
         name: "Custom Printed T-Shirt",
         category: "T-Shirts",
         image: "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 800",
         description:
           "High-quality cotton t-shirts with your logo, artwork, or message printed in full colour. Perfect for staff uniforms, events, promotions, and merch drops. Available in a range of sizes from S to XXL.",
@@ -234,6 +241,12 @@ export const services = [
         name: "Branded Polo T-Shirt",
         category: "T-Shirts",
         image: "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1666071/pexels-photo-1666071.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 1,200",
         description:
           "Premium polo shirts embroidered or printed with your brand logo. A step up from t-shirts for front-desk staff, sales teams, and corporate events. Comfortable, durable, and professional.",
@@ -251,6 +264,12 @@ export const services = [
         name: "Custom Hoodie",
         category: "Hoodies",
         image: "https://images.pexels.com/photos/7679454/pexels-photo-7679454.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/7679454/pexels-photo-7679454.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/8217427/pexels-photo-8217427.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 2,500",
         description:
           "Warm, comfortable hoodies with your design printed or embroidered. Great for team wear, giveaways, and merchandise. Heavyweight fabric that holds up wash after wash.",
@@ -268,6 +287,12 @@ export const services = [
         name: "Printed Ceramic Mug",
         category: "Mugs",
         image: "https://images.pexels.com/photos/6205791/pexels-photo-6205791.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6205791/pexels-photo-6205791.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/3735137/pexels-photo-3735137.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/4207791/pexels-photo-4207791.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 500",
         description:
           "Durable ceramic mugs printed with your logo or artwork. A practical, long-lasting promotional item that keeps your brand on your client's desk every day. Dishwasher and microwave safe.",
@@ -285,6 +310,12 @@ export const services = [
         name: "Branded Cap",
         category: "Caps",
         image: "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1124468/pexels-photo-1124468.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/7679454/pexels-photo-7679454.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 700",
         description:
           "Adjustable caps with your logo embroidered or printed. Great for outdoor events, sports teams, and brand visibility. One-size-fits-all with an adjustable strap.",
@@ -302,6 +333,12 @@ export const services = [
         name: "Outdoor Banner",
         category: "Banners",
         image: "https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/7414288/pexels-photo-7414288.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/5749152/pexels-photo-5749152.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 1,500",
         description:
           "Weather-resistant outdoor banners printed in full colour. Perfect for events, promotions, building signage, and roadshows. Printed on durable vinyl with eyelets for easy hanging.",
@@ -319,6 +356,12 @@ export const services = [
         name: "Roll-Up Banner Stand",
         category: "Banners",
         image: "https://images.pexels.com/photos/7414288/pexels-photo-7414288.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/7414288/pexels-photo-7414288.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/5749152/pexels-photo-5749152.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 3,500",
         description:
           "Portable roll-up banner stands with your full-colour design. Ideal for trade shows, conferences, receptions, and presentations. Comes with a carrying bag for easy transport.",
@@ -336,6 +379,12 @@ export const services = [
         name: "Custom Sticker Pack",
         category: "Stickers",
         image: "https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6205791/pexels-photo-6205791.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 300",
         description:
           "Custom-cut stickers printed in full colour. Great for product packaging, giveaways, laptop branding, and promotional campaigns. Available in die-cut, kiss-cut, or sheet formats.",
@@ -482,7 +531,14 @@ export const services = [
         slug: "countertop-pos-terminal",
         name: "Countertop POS Terminal",
         category: "Terminals",
-        image: "https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        image: "/images/Countertop_ POS_Terminal.jpg",
+        images: [
+          "/images/Countertop_ POS_Terminal.jpg",
+          "/images/portable_handheld.webp",
+          "/images/Thermal_receipt_printer.webp",
+          "/images/bar_code_scanner.webp",
+          "/images/cash_drawer.jpg",
+        ],
         price: "From KES 35,000",
         description:
           "A robust countertop POS terminal with a touchscreen display, built-in receipt printer port, and connectivity for barcode scanners and cash drawers. Ideal for retail shops, pharmacies, and restaurants with a fixed counter.",
@@ -499,7 +555,14 @@ export const services = [
         slug: "portable-handheld-pos",
         name: "Portable Handheld POS",
         category: "Terminals",
-        image: "https://images.pexels.com/photos/6169660/pexels-photo-6169660.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        image: "/images/portable_handheld.webp",
+        images: [
+          "/images/portable_handheld.webp",
+          "/images/Countertop_ POS_Terminal.jpg",
+          "/images/Thermal_receipt_printer.webp",
+          "/images/bar_code_scanner.webp",
+          "/images/cash_drawer.jpg",
+        ],
         price: "From KES 28,000",
         description:
           "A compact handheld POS device for mobile businesses, waitstaff, and pop-up shops. Take orders and payments tableside or on the go, with all sales syncing back to your main system in real time.",
@@ -516,7 +579,14 @@ export const services = [
         slug: "thermal-receipt-printer",
         name: "Thermal Receipt Printer",
         category: "Printers",
-        image: "https://images.pexels.com/photos/6169645/pexels-photo-6169645.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        image: "/images/Thermal_receipt_printer.webp",
+        images: [
+          "/images/Thermal_receipt_printer.webp",
+          "/images/Countertop_ POS_Terminal.jpg",
+          "/images/portable_handheld.webp",
+          "/images/bar_code_scanner.webp",
+          "/images/cash_drawer.jpg",
+        ],
         price: "From KES 9,500",
         description:
           "High-speed thermal receipt printer compatible with most POS systems. Reliable, quiet, and fast — prints receipts in under a second. Connects via USB, Ethernet, or Bluetooth.",
@@ -533,7 +603,14 @@ export const services = [
         slug: "barcode-scanner",
         name: "Barcode Scanner",
         category: "Scanners",
-        image: "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        image: "/images/bar_code_scanner.webp",
+        images: [
+          "/images/bar_code_scanner.webp",
+          "/images/Countertop_ POS_Terminal.jpg",
+          "/images/portable_handheld.webp",
+          "/images/Thermal_receipt_printer.webp",
+          "/images/cash_drawer.jpg",
+        ],
         price: "From KES 6,000",
         description:
           "Fast, accurate barcode scanner for retail and inventory management. Reads 1D and 2D barcodes including QR codes. Plug-and-play with most POS systems via USB.",
@@ -550,7 +627,14 @@ export const services = [
         slug: "cash-drawer",
         name: "Cash Drawer",
         category: "Accessories",
-        image: "https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        image: "/images/cash_drawer.jpg",
+        images: [
+          "/images/cash_drawer.jpg",
+          "/images/Countertop_ POS_Terminal.jpg",
+          "/images/portable_handheld.webp",
+          "/images/Thermal_receipt_printer.webp",
+          "/images/bar_code_scanner.webp",
+        ],
         price: "From KES 8,000",
         description:
           "Heavy-duty cash drawer with multiple compartments for notes and coins. Opens automatically via POS software or manually with a key. Compatible with all major POS terminals.",
@@ -634,6 +718,12 @@ export const services = [
         name: "eTIMS Desktop Device",
         category: "Devices",
         image: "https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693662/pexels-photo-6693662.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6169645/pexels-photo-6169645.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 25,000",
         description:
           "A KRA-approved eTIMS desktop device for fixed-location businesses. Issues compliant electronic tax invoices and submits them to KRA automatically. Includes setup and registration.",
@@ -651,6 +741,12 @@ export const services = [
         name: "eTIMS Portable Device",
         category: "Devices",
         image: "https://images.pexels.com/photos/6693662/pexels-photo-6693662.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6693662/pexels-photo-6693662.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6169645/pexels-photo-6169645.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 20,000",
         description:
           "A portable eTIMS device for businesses on the move — delivery vans, market traders, and pop-up shops. Battery-powered with mobile data connectivity for compliant invoicing anywhere.",
@@ -668,6 +764,12 @@ export const services = [
         name: "eTIMS Receipt Printer",
         category: "Printers",
         image: "https://images.pexels.com/photos/6169645/pexels-photo-6169645.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/6169645/pexels-photo-6169645.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693655/pexels-photo-6693655.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693662/pexels-photo-6693662.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/6693661/pexels-photo-6693661.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 9,500",
         description:
           "Thermal receipt printer compatible with eTIMS devices. Prints compliant tax invoices with all required KRA fields. Fast, reliable, and quiet operation.",
@@ -751,6 +853,12 @@ export const services = [
         name: "Business Router",
         category: "Routers",
         image: "https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881230/pexels-photo-2881230.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 12,000",
         description:
           "Enterprise-grade router designed for small to medium offices. Supports multiple VLANs, VPN, and QoS for reliable, secure connectivity. Includes configuration and setup.",
@@ -768,6 +876,12 @@ export const services = [
         name: "Network Switch",
         category: "Switches",
         image: "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881230/pexels-photo-2881230.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 8,000",
         description:
           "Managed network switch for connecting multiple devices in your office. Supports VLAN segmentation, port prioritization, and remote management. Available in 8, 16, and 24-port configurations.",
@@ -785,6 +899,12 @@ export const services = [
         name: "Wireless Access Point",
         category: "Access Points",
         image: "https://images.pexels.com/photos/2881230/pexels-photo-2881230.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/2881230/pexels-photo-2881230.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 10,000",
         description:
           "High-performance wireless access point for extending WiFi coverage across your office. Supports seamless roaming and can handle 50+ concurrent devices. Ceiling or wall mountable.",
@@ -802,6 +922,12 @@ export const services = [
         name: "Network Cabling (per point)",
         category: "Cabling",
         image: "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        images: [
+          "https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+          "https://images.pexels.com/photos/2881230/pexels-photo-2881230.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1",
+        ],
         price: "From KES 1,500",
         description:
           "Professional structured cabling installation per network point. Includes CAT6 cable, faceplate, keystone jack, and testing. Certified and labeled for easy future maintenance.",
