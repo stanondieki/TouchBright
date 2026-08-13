@@ -10,6 +10,8 @@ import {
   CheckCircle2,
   Mail,
   Phone,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { services } from "@/data/services";
@@ -25,6 +27,7 @@ export default function ProductDetailPage() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [activeImage, setActiveImage] = useState(0);
 
   if (!service || !product) {
     return (
@@ -46,6 +49,11 @@ export default function ProductDetailPage() {
 
   const relatedProducts =
     service.products?.filter((p) => p.slug !== product.slug) ?? [];
+
+  const productImages =
+    product.images && product.images.length > 0
+      ? product.images
+      : [product.image];
 
   async function handleEnquiry(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -131,15 +139,63 @@ export default function ProductDetailPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Product Image */}
+            {/* Product Image Gallery */}
             <AnimatedSection>
               <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-[400px] object-cover"
-                />
+                <div className="relative h-[400px] overflow-hidden group">
+                  <img
+                    src={productImages[activeImage]}
+                    alt={`${product.name} - image ${activeImage + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500"
+                  />
+                  {productImages.length > 1 && (
+                    <>
+                      <button
+                        onClick={() =>
+                          setActiveImage((prev) => prev === 0 ? productImages.length - 1 : prev - 1)
+                        }
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-700 hover:bg-white hover:text-accent transition-all shadow-sm"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                      <button
+                        onClick={() =>
+                          setActiveImage((prev) => prev === productImages.length - 1 ? 0 : prev + 1)
+                        }
+                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-slate-700 hover:bg-white hover:text-accent transition-all shadow-sm"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
+                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+                        {activeImage + 1} / {productImages.length}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
+              {productImages.length > 1 && (
+                <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
+                  {productImages.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImage(idx)}
+                      className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${
+                        activeImage === idx
+                          ? "border-accent ring-2 ring-accent/20"
+                          : "border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <img
+                        src={img}
+                        alt={`${product.name} thumbnail ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </AnimatedSection>
 
             {/* Product Details */}
