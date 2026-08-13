@@ -6,12 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   Monitor,
-  Cloud,
-  Shield,
+  Globe,
   Palette,
   Code2,
   Megaphone,
-  Headphones,
+  CreditCard,
+  Receipt,
+  Router,
   Star,
   Quote,
   Clock,
@@ -43,45 +44,51 @@ const heroSlides = [
 const services = [
   {
     icon: Monitor,
-    title: "UI/UX & Web Design",
-    desc: "Seamless, human-centered designs that improve engagement, conversion, and user satisfaction — turning visitors into loyal customers.",
-    href: "/services",
+    title: "UI and UX Design",
+    desc: "Human-centered design that improves engagement, conversion, and satisfaction — turning visitor frustration into loyalty.",
+    href: "/services/ui-ux-design",
   },
   {
-    icon: Code2,
-    title: "Software Development",
-    desc: "From concept to launch, we build custom applications that work flawlessly across all devices and scale with your business.",
-    href: "/services",
+    icon: Globe,
+    title: "Web Design and Development",
+    desc: "Dynamic, responsive, high-performing websites — from corporate landing pages to complex web apps, built to reflect your brand and drive measurable results.",
+    href: "/services/web-design-development",
   },
   {
     icon: Palette,
     title: "Graphic Design",
     desc: "A powerful, consistent visual identity that connects emotionally with your audience and leaves a lasting impression across every touchpoint.",
-    href: "/services",
+    href: "/services/graphic-design",
+  },
+  {
+    icon: Code2,
+    title: "Software Development",
+    desc: "From concept to launch, we build custom applications that work flawlessly across all devices and scale with your business.",
+    href: "/services/software-development",
+  },
+  {
+    icon: CreditCard,
+    title: "POS Systems",
+    desc: "POS machines and till systems that speed up checkout, track stock, and give you clean daily sales reports — no more guesswork.",
+    href: "/services/pos-systems",
+  },
+  {
+    icon: Receipt,
+    title: "eTIMS Machines",
+    desc: "KRA-compliant invoicing, made simple. eTIMS-ready devices and setup so every sale is invoiced and submitted to KRA automatically.",
+    href: "/services/etims-machines",
+  },
+  {
+    icon: Router,
+    title: "Networking Equipment",
+    desc: "Routers, switches, access points and cabling — supplied and installed so your office network just works, every day.",
+    href: "/services/networking-equipment",
   },
   {
     icon: Megaphone,
     title: "Digital Marketing & SEO",
     desc: "Boost your reach, generate quality leads, and increase ROI through strategic digital marketing that blends creativity with measurable results.",
-    href: "/services",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Networking",
-    desc: "Infrastructure that just works — cloud migration, office networking, and reliable connectivity for your team, wherever they are.",
-    href: "/services",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    desc: "Protection before you need it. Security audits, staff training, and layered protection that keeps your data safe.",
-    href: "/services",
-  },
-  {
-    icon: Headphones,
-    title: "Managed IT Support",
-    desc: "Your tech team without the full-time cost. Help desk, hardware, software, and maintenance — so small problems stay small.",
-    href: "/services",
+    href: "/services/digital-marketing-seo",
   },
 ];
 
@@ -175,7 +182,7 @@ const testimonials = [
   },
 ];
 
-const blogPosts = [
+const fallbackPosts = [
   {
     title: "Why Your Business Needs a Dashboard (Not More Spreadsheets)",
     slug: "why-your-business-needs-a-dashboard",
@@ -199,14 +206,43 @@ const blogPosts = [
   },
 ];
 
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
 export default function HomePage() {
   const [heroSlide, setHeroSlide] = useState(0);
+  const [blogPosts, setBlogPosts] = useState(fallbackPosts);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/blog")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setBlogPosts(
+            data.map((p: any) => ({
+              slug: p.slug,
+              title: p.title,
+              image: p.image,
+              date: formatDate(p.publishedAt),
+              readTime: p.readingTime,
+            }))
+          );
+        }
+      })
+      .catch(() => {});
   }, []);
 
   return (

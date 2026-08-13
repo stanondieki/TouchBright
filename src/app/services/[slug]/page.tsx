@@ -46,6 +46,7 @@ export default function ServiceDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
   const service = services.find((s) => s.slug === slug);
+  const [activeProductCategory, setActiveProductCategory] = useState("All");
 
   if (!service) {
     return (
@@ -198,6 +199,75 @@ export default function ServiceDetailPage() {
                   </div>
                 </div>
               </AnimatedSection>
+
+              {/* Products Catalog */}
+              {service.products && service.products.length > 0 && (
+                <AnimatedSection delay={0.18}>
+                  <div className="mb-14">
+                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-2">
+                      Available{" "}
+                      <span className="text-accent">products</span>
+                    </h2>
+                    <p className="text-slate-500 text-sm mb-6">
+                      Prices are indicative — reach out for exact quotes and bulk pricing.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {["All", ...Array.from(new Set(service.products.map((p) => p.category)))].map((cat) => (
+                        <button
+                          key={cat}
+                          onClick={() => setActiveProductCategory(cat)}
+                          className={`px-4 py-1.5 text-xs font-medium rounded-full transition-all ${
+                            activeProductCategory === cat
+                              ? "bg-accent text-white"
+                              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                          }`}
+                        >
+                          {cat}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {service.products
+                        .filter((p) => activeProductCategory === "All" || p.category === activeProductCategory)
+                        .map((product, i) => (
+                          <motion.div
+                            key={product.slug}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                          >
+                            <Link
+                              href={`/services/${service.slug}/products/${product.slug}`}
+                              className="group block rounded-2xl overflow-hidden border border-slate-100 hover:border-accent/20 hover:shadow-lg transition-all bg-white"
+                            >
+                              <div className="relative h-44 overflow-hidden">
+                                <img
+                                  src={product.image}
+                                  alt={product.name}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-[11px] font-medium text-accent-dark">
+                                  {product.category}
+                                </div>
+                              </div>
+                              <div className="p-4">
+                                <h4 className="text-sm font-heading font-bold text-slate-900 mb-1 group-hover:text-accent transition-colors">
+                                  {product.name}
+                                </h4>
+                                {product.price && (
+                                  <p className="text-accent text-sm font-semibold">{product.price}</p>
+                                )}
+                              </div>
+                            </Link>
+                          </motion.div>
+                        ))}
+                    </div>
+                  </div>
+                </AnimatedSection>
+              )}
 
               {/* Process */}
               <AnimatedSection delay={0.2}>

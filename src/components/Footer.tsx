@@ -46,17 +46,20 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               {[
-                "UI/UX & Web Design",
-                "Data Analytics & BI",
-                "Software Development",
-                "Cloud & Networking",
+                { label: "UI and UX Design", slug: "ui-ux-design" },
+                { label: "Web Design and Development", slug: "web-design-development" },
+                { label: "Graphic Design", slug: "graphic-design" },
+                { label: "Software Development", slug: "software-development" },
+                { label: "POS Systems", slug: "pos-systems" },
+                { label: "eTIMS Machines", slug: "etims-machines" },
+                { label: "Networking Equipment", slug: "networking-equipment" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.slug}>
                   <Link
-                    href="/services"
+                    href={`/services/${item.slug}`}
                     className="text-slate-400 text-sm hover:text-accent-light transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}
