@@ -24,13 +24,14 @@ const navLinks: NavLink[] = [
     href: "/services",
     label: "Services",
     dropdown: [
-      { label: "UI/UX & Web Design", href: "/services/ui-ux-web-design", desc: "Websites that work as hard as you do" },
+      { label: "UI and UX Design", href: "/services/ui-ux-design", desc: "Interfaces people actually enjoy using" },
+      { label: "Web Design and Development", href: "/services/web-design-development", desc: "Websites that work as hard as you do" },
       { label: "Graphic Design", href: "/services/graphic-design", desc: "Visuals that make people remember you" },
       { label: "Software Development", href: "/services/software-development", desc: "Custom tools for your business" },
-      { label: "Cloud & Networking", href: "/services/cloud-networking", desc: "Infrastructure that just works" },
-      { label: "Cybersecurity", href: "/services/cybersecurity", desc: "Protection before you need it" },
+      { label: "POS Systems", href: "/services/pos-systems", desc: "Point-of-sale hardware built for busy tills" },
+      { label: "eTIMS Machines", href: "/services/etims-machines", desc: "KRA-compliant invoicing, made simple" },
+      { label: "Networking Equipment", href: "/services/networking-equipment", desc: "Reliable connectivity, built to spec" },
       { label: "Digital Marketing & SEO", href: "/services/digital-marketing-seo", desc: "Get found by the right people" },
-      { label: "Managed IT Support", href: "/services/managed-it-support", desc: "Your tech team, without the cost" },
     ],
   },
   {

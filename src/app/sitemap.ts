@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
-import { blogPosts } from "@/app/blog/page";
+import { getAllPosts } from "@/sanity/lib";
 
 const BASE_URL = "https://touchbrightconsults.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { path: "", priority: 1.0 },
     { path: "/services", priority: 0.9 },
@@ -28,12 +28,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogPages = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "yearly" as const,
-    priority: 0.5,
-  }));
+  const productPages = services
+    .filter((service) => service.products)
+    .flatMap((service) =>
+      service.products!.map((product) => ({
+        url: `${BASE_URL}/services/${service.slug}/products/${product.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      }))
+    );
 
-  return [...staticPages, ...servicePages, ...blogPages];
+  let blogPages: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await getAllPosts();
+    blogPages = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    }));
+  } catch {
+    blogPages = [];
+  }
+
+  return [...staticPages, ...servicePages, ...productPages, ...blogPages];
 }
