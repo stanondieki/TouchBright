@@ -2,26 +2,69 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { blogPosts } from "../page";
+import { PortableTextRenderer } from "@/components/PortableTextRenderer";
+import { getAllSlugs, getPostBySlug, getAllPosts, type BlogPost } from "@/sanity/lib";
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  let slugs: string[] = [];
+  try {
+    slugs = await getAllSlugs();
+  } catch {
+    slugs = [];
+  }
+  return slugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  let post;
+  try {
+    post = await getPostBySlug(params.slug);
+  } catch {
+    return { title: "Post Not Found" };
+  }
   if (!post) return { title: "Post Not Found" };
   return {
-    title: `${post.title} | Touchbright Consults`,
-    description: post.excerpt,
+    title: `${post.seoTitle || post.title} | Touchbright Consults`,
+    description: post.seoDescription || post.excerpt,
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  let post: BlogPost | null = null;
+  try {
+    post = await getPostBySlug(params.slug);
+  } catch {
+    post = null;
+  }
   if (!post) notFound();
 
-  const relatedPosts = blogPosts
+  let allPosts: BlogPost[] = [];
+  try {
+    allPosts = await getAllPosts();
+  } catch {
+    allPosts = [];
+  }
+
+  const relatedPosts = allPosts
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 3);
 
@@ -45,7 +88,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </span>
               <span className="text-xs text-slate-400 flex items-center gap-1">
                 <Calendar size={12} />
-                {post.date}
+                {formatDate(post.publishedAt)}
               </span>
               <span className="text-xs text-slate-400 flex items-center gap-1">
                 <Clock size={12} />
@@ -66,7 +109,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <span className="text-white text-sm font-bold">TB</span>
               </div>
               <div>
-                <div className="text-sm font-semibold text-slate-900">{post.author}</div>
+                <div className="text-sm font-semibold text-slate-900">
+                  {post.author || "Touchbright Team"}
+                </div>
                 <div className="text-xs text-slate-400">Touchbright Consults</div>
               </div>
             </div>
@@ -94,14 +139,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <div className="max-w-3xl mx-auto px-6 md:px-12">
           <AnimatedSection>
             <article className="prose prose-lg max-w-none">
-              {post.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-slate-700 leading-relaxed mb-6 text-base md:text-lg"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              <PortableTextRenderer content={post.content} />
             </article>
           </AnimatedSection>
 
